@@ -73,7 +73,7 @@ def show_pokemon(request, pokemon_id):
         'previous_evolution': evolution_from
     }
 
-    pokemon_entities = PokemonEntity.objects.select_related('pokemon').filter(pokemon=pokemon)
+    pokemon_entities = pokemon.pokemon_entities.all()
 
     folium_map = folium.Map(location=MOSCOW_CENTER, zoom_start=12)
     for pokemon_entity in pokemon_entities:
